@@ -1,0 +1,69 @@
+# Publica el sitio de documentación (VitePress) en GitHub Pages.
+# Repositorio dedicado: los archivos del sitio están en la RAÍZ del repo.
+# URL publicada: https://titomiguel.github.io/Apptividad.RPA.Core.Arquitectura/
+name: Documentación · GitHub Pages
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch: {}   # permite ejecutarlo manualmente desde la pestaña Actions
+
+# Permisos que GitHub Actions necesita para publicar en Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Evita despliegues concurrentes; no cancela un despliegue en curso
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Construir y validar el sitio
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci || npm install
+
+      - name: Validar estilo Markdown
+        run: npm run lint:md
+
+      - name: Validar enlaces internos
+        run: npm run check:links
+
+      - name: Construir sitio estático
+        run: npm run docs:build
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Subir artefacto de Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
+
+  deploy:
+    name: Desplegar en GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Desplegar
+        id: deployment
+        uses: actions/deploy-pages@v4

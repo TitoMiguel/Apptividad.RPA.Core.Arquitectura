@@ -1,0 +1,15 @@
+{
+  // Reglas de estilo Markdown para documentación técnica.
+  "config": {
+    "default": true,
+    "MD013": false,   // longitud de línea: tablas/enlaces largos son comunes
+    "MD033": false,   // HTML en línea permitido (frontmatter hero)
+    "MD024": { "siblings_only": true },
+    "MD025": { "front_matter_title": "" }, // el H1 del cuerpo no compite con el title del frontmatter
+    "MD032": false,   // listas rodeadas de blancos: relajado para contenido extraído con tablas densas
+    "MD041": false,
+    "MD046": false
+  },
+  "globs": [ "docs/**/*.md", "README.md" ],
+  "ignores": [ "**/node_modules/**", "docs/.vitepress/dist/**", "docs/.vitepress/cache/**" ]
+}

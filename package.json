@@ -1,0 +1,20 @@
+{
+  "name": "rpa-arquitectura",
+  "version": "1.0.0",
+  "description": "Sitio de documentación técnica de la arquitectura del Core RPA de Apptividad (Modelo C4 + Diátaxis).",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "lint:md": "markdownlint-cli2 \"docs/**/*.md\" \"README.md\"",
+    "check:links": "node scripts/check-links.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "mermaid": "^11.4.1",
+    "markdownlint-cli2": "^0.15.0"
+  }
+}

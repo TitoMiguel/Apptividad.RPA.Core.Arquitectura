@@ -1,0 +1,11 @@
+# Entornos de desarrollo local
+http://localhost
+http://localhost:*
+http://127.0.0.1:*
+# Infraestructura interna / VPN no accesible desde internet
+https://dev.apptividad.net/*
+http://192.168.*
+https://192.168.*
+# Endpoints de servicio internos
+*/RPAService.svc*
+*/OrchestrationApi.svc*
