@@ -63,7 +63,7 @@ export default withMermaid({
           { text: 'Procedimientos almacenados', link: '/02-referencia/procedimientos-almacenados' },
           { text: 'Workflows XAML', link: '/02-referencia/workflows-xaml' },
           { text: 'Catálogo de Activities', link: '/02-referencia/catalogo-activities' },
-          { text: 'Trazabilidad de fuentes', link: '/02-referencia/trazabilidad-fuentes' }
+          { text: 'Trazabilidad de la evidencia', link: '/02-referencia/trazabilidad-fuentes' }
         ]
       },
       {

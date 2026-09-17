@@ -79,7 +79,7 @@ erDiagram
     }
 ```
 
-La estructura anterior está **confirmada por el DDL** versionado en `E:\RPA\Apptividad.DataBase\2_Ozono\Tables`. Las tablas cumplen roles distintos y complementarios:
+La estructura anterior corresponde al esquema (DDL) de las tablas. Cada tabla cumple un rol distinto y complementario:
 
 - **`RPA_REQUEST`** conserva el registro maestro de cada solicitud. Su clave es la pareja `ROWID` (identidad autoincremental) y `REQUESTID` (identificador de la operación de negocio).
 - **`RPA_TO_PROCESS`** es la cola de trabajo pendiente. Comparte clave con `RPA_REQUEST` y es la tabla que consultan las instancias para tomar trabajo.

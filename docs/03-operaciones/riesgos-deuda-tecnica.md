@@ -26,7 +26,7 @@ tags: [riesgos, deuda-tecnica]
 
 ### Hallazgos de consistencia
 
-- El diccionario lista 30 WebActivities y 31 UtilsActivities; el snapshot contiene 31 y 37.
+- El código contiene 31 WebActivities y 37 UtilsActivities.
 - `EnqueueProvisioningCaptchaActivity.cs` está en WebActivities, pero declara namespace UtilsActivities.
 - Dos archivos poseen un espacio antes de `.cs`, afectando convenciones/tooling.
 - Conviven nombres históricos de navegador e implementación Selenium Edge.

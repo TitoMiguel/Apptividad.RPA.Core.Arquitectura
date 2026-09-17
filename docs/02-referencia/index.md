@@ -17,4 +17,4 @@ Información técnica estructurada para consulta directa. Corresponde a la categ
 - [Catálogo de procedimientos almacenados](/02-referencia/procedimientos-almacenados)
 - [Inventario de workflows XAML](/02-referencia/workflows-xaml)
 - [Catálogo completo de Activities](/02-referencia/catalogo-activities)
-- [Matriz de trazabilidad de fuentes](/02-referencia/trazabilidad-fuentes)
+- [Trazabilidad de la evidencia](/02-referencia/trazabilidad-fuentes)

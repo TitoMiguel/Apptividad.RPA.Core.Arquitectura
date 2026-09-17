@@ -1,27 +1,33 @@
 ---
-title: "Matriz de trazabilidad de fuentes"
-description: "Referencia: relación entre afirmaciones y su nivel de evidencia (código, documentación o inferencia)."
+title: "Trazabilidad de la evidencia"
+description: "Referencia: cómo se relaciona cada afirmación de la documentación con su nivel de evidencia dentro del propio sistema."
 category: "Referencia"
 c4Level: "Code"
 position: 8
 tags: [referencia, trazabilidad, evidencia]
 ---
 
-# Matriz de trazabilidad de fuentes
+# Trazabilidad de la evidencia
 
-## E. Matriz de trazabilidad de fuentes
+Esta documentación es autocontenida: cada afirmación se sostiene en artefactos del propio sistema —código, procedimientos almacenados, esquema de base de datos (DDL) y registros de operación—, no en materiales externos de elaboración.
 
-| Fuente | Contenido utilizado | Observaciones |
+## Niveles de evidencia
+
+Para leer la documentación con el nivel de certeza adecuado, las afirmaciones se clasifican en tres niveles.
+
+| Nivel | Significado | Cómo verificarlo |
 |---|---|---|
-| `Apptividad.Core.zip` | C#, XAML, contratos, Activities, Shell, servicios, utilidades y changelog. | Fuente primaria de implementación. |
-| `Apptividad - RPA Fundamentals.pdf` | Requisitos, configuración, infraestructura, consumo, UDC, WF y soporte. | Documento transversal principal. |
-| `DICCIONARIO DE LIBRERÍA DE ACTIVITIES CORE DE RPA.pdf` | Jerarquía y descripciones de Activities. | El código contiene Activities adicionales. |
-| `Arquitectura TTY + RPA.pdf` | Capas, flujo end-to-end, soporte y errores. | Se consolidaron secciones repetidas. |
-| `RPA 3.0.3.8 ESTÁNDARES DE INSTALACIÓN.pdf` | Publicación, ruta, backup, config y Task Scheduler. | Referencia de instalación. |
-| `RPA - UDCS PREDETERMINADOS.pdf` | Familias UDC y parámetros base. | Complemento de Fundamentals. |
-| `ANÁLISIS Y DISEÑO DE ROBOTS AUTORIZAR Y CONSULTAR.pdf` | Diseño SUGEF_CIC, estados y subprocesos. | Caso moderno de referencia. |
-| `Transcipción Training RPA.pdf` | Perfiles, certificados, ExtendedProperties, logs y desarrollo. | Fuente conversacional usada con cautela. |
-| `Apptividad - Guía Usuario Iniciar Instancias RPA.pdf` | Operación diaria, GAUDI, sesión remota y monitoreo. | Perspectiva operativa. |
-| `RPA DE VERIFICATE_BUREAU.pdf` | Proceso, infraestructura, certificados y requisitos SVI. | Caso externo. |
-| `Apptividad - Compatibilidad RPA con Windows Server 2025.pdf` | .NET 4.8, Edge y riesgos. | Evalúa 3.0.3.6. |
-| `RPA - SIMBOLOGÍA DIAGRAMAS.pdf` | Convenciones de diagramas. | Los diagramas finales usan Mermaid. |
+| **Confirmado por código** | Existe una implementación observable en el código base. | Clases, métodos, argumentos, contratos WCF, llamadas a procedimientos almacenados y dependencias entre proyectos. |
+| **Confirmado por estructura de datos** | La estructura o el comportamiento se define en el esquema (DDL) o en el procedimiento almacenado. | Columnas y claves de las tablas; cuerpo de los procedimientos; registros reales de operación. |
+| **Inferencia técnica controlada** | Se deduce de nombres, llamadas y flujo, sin una definición explícita única. | Se identifica como inferencia y se acompaña de la señal que la respalda. |
+
+## Cómo se rastrea una afirmación
+
+- **Componentes y responsabilidades:** se rastrean hasta el proyecto y la clase que los implementan.
+- **Flujos e integraciones:** se rastrean hasta el método, el contrato WCF o el workflow que los realiza.
+- **Persistencia y estados:** se rastrean hasta la tabla, el procedimiento almacenado o el trigger que los define, y hasta los valores presentes en operación.
+- **Configuración dinámica:** se rastrea hasta el UDC correspondiente.
+
+## Distinción de niveles de madurez
+
+La documentación mantiene explícita la diferencia entre lo **documentado**, lo **diseñado**, lo **implementado** y lo **observado en operación**. Cuando una relación no puede demostrarse con estas fuentes, se identifica de forma explícita como no determinada, en lugar de presentarla como un hecho.

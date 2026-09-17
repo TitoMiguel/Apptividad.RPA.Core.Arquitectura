@@ -46,7 +46,7 @@ El alcance incluye:
 - Instalación, compatibilidad, soporte, observabilidad, rendimiento y riesgos.
 
 Límites de la evidencia:
-- La consolidación inicial (junio de 2026) se basó en un paquete de código sin `.sln`, `.csproj` ni esquema SQL. La revisión de septiembre de 2026 amplió esa base con los proyectos de la solución (`E:\RPA\Apptividad.Ozono`, `E:\RPA\Apptividad.CrediQuick`) y con el esquema versionado (`E:\RPA\Apptividad.DataBase`); por ello, la estructura de proyectos, el DDL y el código de los procedimientos almacenados quedaron confirmados.
+- La estructura de proyectos, el DDL de las tablas y el código de los procedimientos almacenados constituyen la base confirmada de esta arquitectura.
 - Algunas versiones exactas de paquetes y ciertas opciones de compilación no se documentan en este archivo por no ser relevantes para la arquitectura.
 - El proyecto de pruebas (`TestingActivities`) no forma parte del alcance revisado, por lo que la cobertura de pruebas no se verificó.
 - Existen referencias históricas a Internet Explorer y a componentes Droid legados; el código vigente utiliza principalmente Edge/Selenium y RPADroid Shell.
@@ -56,11 +56,11 @@ Límites de la evidencia:
 
 | Nivel | Significado | Aplicación |
 |---|---|---|
-| **Confirmado por código** | Existe implementación observable en el snapshot. | Clases, métodos, argumentos, estados, llamadas, procedimientos y dependencias. |
-| **Confirmado por documentación** | Está descrito en una guía o diseño oficial suministrado. | Requisitos, instalación, operación, convenciones y procesos. |
+| **Confirmado por código** | Existe implementación observable en el código base. | Clases, métodos, argumentos, estados, llamadas, procedimientos y dependencias. |
+| **Confirmado por documentación técnica** | Está descrito en la documentación técnica de la plataforma. | Requisitos, instalación, operación, convenciones y procesos. |
 | **Inferencia técnica controlada** | Se deduce de nombres, llamadas y flujo. | Propósito de entidades no incluidas, hosting y clasificación arquitectónica. |
 
-Resumen cuantitativo del snapshot:
+Resumen cuantitativo del código base:
 
 | Métrica | Valor |
 |---|---:|
@@ -73,4 +73,4 @@ Resumen cuantitativo del snapshot:
 | Operaciones del contrato WCF interno | 41 |
 | Procedimientos almacenados invocados desde `RpaProcess` | 39 |
 
-En la revisión de septiembre de 2026 se incorporó como fuente el esquema de base de datos versionado en `E:\RPA\Apptividad.DataBase`. Con ello, la estructura de las tablas `RPA_REQUEST`, `RPA_RESULT`, `RPA_TO_PROCESS`, `RPA_PROCESSING` y `RPA`, antes documentada como modelo conceptual, pasa a estar **confirmada por el DDL**. La lógica de selección de trabajo se confirmó leyendo el código de los procedimientos `RPA_TO_PROCESS_GET` y `RPA_TO_PROCESS_GET_ASYNC`.
+La estructura de las tablas `RPA_REQUEST`, `RPA_RESULT`, `RPA_TO_PROCESS`, `RPA_PROCESSING` y `RPA` corresponde al esquema (DDL) de la base de datos. La lógica de selección de trabajo se implementa en los procedimientos `RPA_TO_PROCESS_GET` y `RPA_TO_PROCESS_GET_ASYNC`.

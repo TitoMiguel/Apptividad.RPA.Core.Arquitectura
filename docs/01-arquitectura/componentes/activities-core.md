@@ -52,7 +52,7 @@ classDiagram
 - Mide tiempo por Activity en debug.
 - Propaga error si el mensaje termina fallido.
 
-La opción `IsStopActivityWhenTimeOut` intenta ejecutar la Activity en una tarea separada. En el snapshot, llamadas de espera y propagación aparecen comentadas; el comportamiento debe verificarse con pruebas porque podría iniciar lógica asíncrona sin bloquear de forma correcta.
+La opción `IsStopActivityWhenTimeOut` intenta ejecutar la Activity en una tarea separada. En el código, llamadas de espera y propagación aparecen comentadas; el comportamiento debe verificarse con pruebas porque podría iniciar lógica asíncrona sin bloquear de forma correcta.
 
 ### BaseWebActivity
 

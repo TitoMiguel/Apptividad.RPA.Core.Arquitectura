@@ -60,4 +60,4 @@ También se propone una tarea `RPA_RESTART` en Windows Task Scheduler para reini
 | Red | Servicios Apptividad, sitio objetivo, driver, SMTP/IMAP y VPN cuando aplique. |
 | Sesión | Sesión Windows interactiva para UI Automation, certificado y navegador. |
 
-La guía de instalación identifica RPADroid 3.0.3.8; el documento de compatibilidad evalúa 3.0.3.6. El snapshot contiene cambios de 2026, pero sin metadatos de ensamblado no se puede asignar una versión única.
+Se identifican versiones de RPADroid como 3.0.3.8 y 3.0.3.6. El código contiene cambios de 2026, pero sin metadatos de ensamblado no se puede asignar una versión única.
